@@ -1,17 +1,13 @@
-import React, {Component} from "react";
-import { Button, Block } from "./components";
+import React, { Component } from "react";
+import { Auth } from "pages";
 
 class App extends Component {
     render() {
         return (
             <div className="wrapper">
-                <Block>
-                    <Button type="primary" size="large">
-                        This is Button!
-                    </Button>
-                </Block>
+                <Auth />
             </div>
-        )
+        );
     }
 }
 
