@@ -1,1 +1,1 @@
-export { default as Auth } from "./Auth/index.jsx"
+export { Auth } from "../Auth"

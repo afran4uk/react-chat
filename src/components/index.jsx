@@ -1,2 +1,2 @@
-export { default as Button } from "./Button";
-export { default as Block } from "./Block";
+export { Button } from "./Button";
+export { Block } from "./Block";

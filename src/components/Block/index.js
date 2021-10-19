@@ -7,4 +7,4 @@ const Block = ({ children, className }) => (
     <div className={classNames("block", className)}>{children}</div>
 );
 
-export default Block;
+export { Block };
