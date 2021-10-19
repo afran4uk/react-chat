@@ -23,16 +23,19 @@
     width: 100%;
   }
 
-  .login-form {
-    max-width: 3000000px;
-  }
-  #components-form-demo-normal-login .login-form-forgot {
-    float: right;
-  }
-  #components-form-demo-normal-login .ant-col-rtl .login-form-forgot {
-    float: left;
-  }
-  #components-form-demo-normal-login .login-form-button {
+  .button{
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.1px;
+    font-weight: 500;
     width: 100%;
   }
+
+  &__register-link{
+    text-align: center;
+    display: block;
+    color: #adadad;
+    letter-spacing: 0.1px;
+  }
+
 }
