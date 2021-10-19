@@ -19,27 +19,15 @@ class Auth extends React.Component {
                         <p>Пожалуйста, войдите в свой аккаунт</p>
                     </div>
                     <Block>
-                        <Form
-                            name="normal_login"
-                            className="login-form"
-                            onFinish={this.onFinish}
-                        >
-                            <Form.Item
-                                name="username"
-                                rules={[{required: true, message: 'Please input your Username!'}]}
-                                hasFeedback
-                                validate-status="success"
-                            >
+                        <Form name="normal_login" className="login-form" onFinish={this.onFinish}>
+                            <Form.Item  name="username"  hasFeedback  validate-status="success">
                                 <Input
                                     size="large"
                                     prefix={<UserOutlined className="site-form-item-icon"/>}
                                     placeholder="Username"
                                 />
                             </Form.Item>
-                            <Form.Item
-                                name="password"
-                                rules={[{required: true, message: 'Please input your Password!'}]}
-                            >
+                            <Form.Item name="password">
                                 <Input
                                     size="large"
                                     prefix={<LockOutlined className="site-form-item-icon"/>}
@@ -49,14 +37,12 @@ class Auth extends React.Component {
                             </Form.Item>
 
                             <Form.Item>
-                                <Button
-                                    type="primary"
-                                    size="large">
+                                <Button type="primary" size="large">
                                     Войти в аккаунт
                                 </Button>
                             </Form.Item>
 
-                            <a className="auth__register-link" href="">Зарегистрироваться</a>
+                            <a className="auth__register-link" href="#">Зарегистрироваться</a>
 
                         </Form>
                     </Block>
