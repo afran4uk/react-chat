@@ -1,5 +1,5 @@
 import React from 'react';
-import { Block, Button } from '../../../components';
+import { Block, Button } from '~/components';
 import { Form, Input } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
