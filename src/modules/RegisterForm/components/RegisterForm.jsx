@@ -10,7 +10,7 @@ export class RegisterForm extends React.Component {
   };
 
   render() {
-    const success = true;
+    const success = false;
 
     return (
       <section className="auth">
