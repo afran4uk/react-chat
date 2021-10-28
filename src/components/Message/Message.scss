@@ -3,9 +3,12 @@
 .message {
   $self: &;
 
-  display: flex;
-  max-width: 440px;
-  margin-bottom: 15px;
+  &__content {
+    display: flex;
+    max-width: 440px;
+    margin-bottom: 20px;
+    position: relative;
+  }
 
   &__avatar {
     display: flex;
@@ -37,11 +40,37 @@
     line-height: 20px;
   }
 
+  &__attachments {
+    display: flex;
+    margin-bottom: 5px;
+    position: relative;
+    &-item {
+      img {
+        width: 45px;
+        height: 45px;
+        margin-right: 5px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__icon-readed {
+    position: absolute;
+    bottom: 22px;
+    left: -25px;
+
+    &--no {
+      left: -20px;
+    }
+  }
+
   &--isMe {
     display: flex;
     flex-direction: row-reverse;
 
     #{$self}__content {
+      margin-bottom: 15px;
       flex-direction: row-reverse;
     }
 
@@ -52,13 +81,18 @@
       }
     }
 
+    #{$self}__info {
+      display: flex;
+      align-items: center;
+      text-align: right;
+    }
+
     #{$self}__bubble {
       background: $white;
       border: 1px solid #ececec;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.02);
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.0220444);
       border-radius: 12px 12px 0px 12px;
-      padding: 15px;
-      margin-bottom: 8px;
+      order: 2;
       #{$self}__text {
         color: $black;
       }
