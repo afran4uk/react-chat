@@ -1,62 +1,65 @@
 import React from 'react';
 import { Block, Button } from '~/components';
-import { Form, Input} from 'antd';
-import { ClockCircleTwoTone, LockOutlined, UserOutlined, MailOutlined } from '@ant-design/icons';
+import { Form, Input } from 'antd';
+import { ClockCircleTwoTone } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
-export class RegisterForm extends React.Component {
-  onFinish = (values) => {
-    console.log('RegForm Received values of from: ', values);
-  };
+const success = false;
 
-  render() {
-    const success = false;
+export const RegisterForm = (props) => {
+  const { values, touched, errors, handleChange, handleBlur, handleSubmit } = props;
+  console.log(props)
+  return (
+    <div>
+      <div className="auth__top">
+        <h2>Регистрация</h2>
+        <p>Плиз зарегайся</p>
+      </div>
+      <Block>
+        {!success ? (
+          <Form className="login-form" onSubmit={handleSubmit}>
+            <Form.Item validateStatus={errors.email && touched.email} hasFeedback>
+              <Input
+                id='email'
+                name='email'
+                size="large"
+                type="mail"
+                placeholder="E-mail"
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+            </Form.Item>
+            <Form.Item name="username">
+              <Input size="large" placeholder="Username" value={values.username} />
+            </Form.Item>
+            <Form.Item name="password">
+              <Input size="large" type="password" placeholder="Password" value={values.password} />
+            </Form.Item>
+            <Form.Item name="repeat_password">
+              <Input size="large" type="password" placeholder="Repeat password" value={values.repeat_password} />
+            </Form.Item>
 
-    return (
-      <section className="auth">
-        <div>
-          <div className="auth__top">
-            <h2>Регистрация</h2>
-            <p>Плиз зарегайся</p>
+            <Form.Item>
+              <Button type="primary" size="large">
+                Зарегистрироваться
+              </Button>
+            </Form.Item>
+
+            <Link className="auth__register-link" to="/">
+              Войти в аккаунт
+            </Link>
+          </Form>
+        ) : (
+          <div className="auth__success-block">
+            <div>
+              <ClockCircleTwoTone style={{ size: '50px' }} />
+            </div>
+            <h3>Подверлите свой аккаунт</h3>
+            <p>На вашу почту отправлено письмецо</p>
           </div>
-          <Block>
-            {!success ? (
-              <Form name="normal_login" className="login-form" onFinish={this.onFinish}>
-                <Form.Item name="email">
-                  <Input size="large" prefix={<MailOutlined className="site-form-item-icon" />} type="mail" placeholder="E-mail" />
-                </Form.Item>
-                <Form.Item name="username">
-                  <Input size="large" prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
-                </Form.Item>
-                <Form.Item name="password">
-                  <Input size="large" prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="Password" />
-                </Form.Item>
-                <Form.Item name="repeat-password">
-                  <Input size="large" prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="Repeat password" />
-                </Form.Item>
-
-                <Form.Item>
-                  <Button type="primary" size="large">
-                    Зарегистрироваться
-                  </Button>
-                </Form.Item>
-
-                <Link className="auth__register-link" to="/">
-                  Войти в аккаунт
-                </Link>
-              </Form>
-            ) : (
-              <div className="auth__success-block">
-                <div>
-                  <ClockCircleTwoTone style={{ size: '50px'}} />
-                </div>
-                <h3>Подверлите свой аккаунт</h3>
-                <p>На вашу почту отправлено письмецо</p>
-              </div>
-            )}
-          </Block>
-        </div>
-      </section>
-    );
-  }
-}
+        )}
+      </Block>
+    </div>
+  );
+};
